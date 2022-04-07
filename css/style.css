@@ -1,0 +1,571 @@
+:root {
+    --amarelo: #eecb08;
+    --preto: #141414;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--preto);
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/*nav bar*/
+header .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+/*responsivity header*/
+@media screen and (max-width:700px) {
+    header .container{
+    display: flex;
+    flex-direction: column;
+    }
+}
+
+header .logo {
+    margin-left: 20px;
+    margin-right: 10px;
+    color: var(--amarelo);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 40px;
+    letter-spacing: 5px;
+}
+
+
+header nav a{
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    margin-right: 20px;
+}
+
+header nav a:hover {
+    color: #AAA;
+}
+
+/*search box*/
+.search-box {
+    position:absolute;
+
+    top: 1%;
+    left: 80%;
+    
+    top: 5%;
+    
+    
+    transform: translate(-50%,-50%);
+   
+    border-radius: 40px;
+}
+
+.search-box:hover > .search-txt {
+    width: 200px;
+    padding: 0 6px;
+    background: white;
+    border-radius: 40px;
+}
+
+.search-box:hover > .search-btn {
+    background: white;
+    
+}
+
+.search-btn {
+    text-decoration: none;
+    color: black;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #eecb08;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+   width: 0;
+}
+
+/*responsivity search box*/
+@media screen and (max-width:1230px) {
+    header .search-box{
+    visibility: hidden;
+    }
+}
+
+/*bell button*/
+.bell-btn {
+    position: absolute;
+  
+    top: 4%;
+    left: 87%;
+    color: #eecb08;
+    font-size: 20px;
+}
+
+/*responsivity bell button*/
+@media screen and (max-width:700px) {
+    header .container .bell-btn{
+    visibility: hidden;
+    }
+}
+
+/*sign button*/
+.wrapper {
+    position: absolute;
+    top: 4%;
+    left: 90%;
+    color: #fff;
+    
+}
+
+  .button {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 2px;
+    color: var(--amarelo);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+  }
+
+  .button:hover {
+    color: #AAA;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  }
+
+  .button:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 200ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .overlay.light {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .overlay .cancel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+  }
+
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  .popup {
+    margin: 75px auto;
+    padding: 20px;
+    background: var(--preto);
+    border: 1px solid #666;
+    width: 300px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+
+  .light .popup {
+    border-color: #aaa;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .popup h2 {
+    margin-top: 0;
+    color: #AAA;
+    font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+  }
+
+  .popup .close {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+    right: 20px;
+    opacity: 0.8;
+    transition: all 200ms;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #666;
+  }
+
+  .popup .close:hover {
+    opacity: 1;
+  }
+
+  .popup .content {
+    max-height: 400px;
+    overflow: auto;
+  }
+
+  .popup p {
+    margin: 0 0 1em;
+  }
+
+  .popup p:last-child {
+    margin: 0;
+  }
+
+/*sign form*/
+  .form-container .form-inner{
+    display: flex;
+    width: 200%;
+    
+  }
+  .form-container .form-inner form{
+    width: 50%;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  }
+  .form-inner form .field{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .form-inner form .field input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+  }
+  
+  .form-inner form .field input::placeholder{
+    color: #999;
+    transition: all 0.3s ease;
+  }
+  
+  .form-inner form .signup-link{
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+  }
+
+  .form-inner form .pass-link a,
+  .form-inner form .signup-link a{
+    color: var(--amarelo);
+    text-decoration: none;
+  }
+
+  form .btn{
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  form .btn .btn-layer{
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    background: var(--amarelo);
+    border-radius: 5px;
+    transition: all 0.4s ease;;
+  }
+
+  form .btn:hover .btn-layer{
+    left: 0;
+  }
+
+  form .btn input[type="submit"]{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    background: none;
+    border: none;
+    color: var(--preto);
+    padding-left: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+/*responsivity sign button*/
+@media screen and (max-width:700px) {
+    header .container .wrapper {
+    visibility: hidden;
+    }
+}
+
+/*banner*/
+.banner_jogo {
+    background: linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)), url('/img/banner.png');
+    background-size: cover;
+    height: 500px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 150px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-top: 2px solid #AAA;
+    border-bottom: 2px solid #AAA;
+    }
+
+.banner_jogo .titulo {
+    font-size: 30px;
+}
+
+.banner_jogo .descricao {
+    font-size: 20px;
+    text-align: justify;
+}
+
+/*banner buttons*/
+.botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.botoes .btn-secondary {
+    display: block;
+    margin: 40px auto 0px;
+  text-align: center;
+  background: #ed2553;
+  border-radius: 3px;
+  box-shadow: 0 10px 20px -8px rgb(240, 75, 113);
+  padding: 10px 17px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.botoes .btn-secondary:hover {
+    transform: translateY(-3px);
+}
+.botoes .btn-secondary .fa-solid {
+    margin-right: 5px;
+}
+
+/* banner button animation*/
+.animate-like {
+  animation-name: likeAnimation;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.65s;
+}
+@keyframes likeAnimation {
+0%   { transform: scale(30); }
+100% { transform: scale(1); }
+}
+
+/*carousel*/
+.games .titulo {
+    margin-left: 110px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+  .owl-carousel {
+    transition: 450ms transform;
+    font-size: 0;
+    white-space: nowrap;
+    padding-left: 100px;
+    padding-right: 50px;
+
+  }
+  .item {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 450ms all;
+    transform-origin: center;
+  }
+  .item:last-child {
+    transform-origin: center;
+  }
+
+/*carousel hover*/
+.carousel {
+    opacity: 1;
+  }
+  .owl-carousel:hover {
+    transform: translate3d(-62.5px, 0, 0);
+  }
+  .owl-carousel:hover .item {
+    opacity: 0.3;
+  }
+  .owl-carousel:hover .item:hover {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  .item:hover ~ .item {
+    transform: translate3d(125px, 0, 0);
+  }
+  
+  /*pop up video*/
+  .item {
+    position: relative;
+  }
+  .item i {
+    display: none;
+    font-size: 4rem;
+    color: var(--amarelo);
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  }
+  .item a {
+    display: block;
+    width: 100%;
+  }
+  .item a:hover:before {
+    content: "";
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+  }
+  .item a:hover i {
+    display: block;
+    z-index: 2;
+  }
+
+  /*pop up news*/
+  .white-popup-block {
+    background: var(--amarelo);
+    padding: 20px 30px;
+    text-align: left;
+    max-width: 650px;
+    margin: 40px auto;
+    position: relative;
+  }
+  
+  .popuptext {
+    display: table;
+  }
+  .popuptext p {
+      color: #141414;
+    margin-bottom: 10px;
+  }
+  .popuptext span {
+    font-weight: bold;
+    float: right;
+  }
+
+/*footer*/
+footer {
+    height: auto;
+    padding-top: 40px;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content h3 {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 3rem;
+}
+
+.footer-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.socials {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.socials li {
+    margin: 0 10px;
+}
+
+.socials a {
+    text-decoration: none;
+    color: white;
+}
+
+.socials a i {
+    font-size: 1.1rem;
+    transition: color .4s ease;
+}
+
+.socials a:hover i {
+    color: #eecb08;
+}
+
+.footer-bottom {
+    background: black;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+}
+
+.footer-bottom span {
+    opacity: .4;
+    font-weight: 200;
+}
+
+
+
+
